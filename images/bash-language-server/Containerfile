@@ -3,6 +3,7 @@ FROM alpine:latest
 
 # Install Node (for LSP), ShellCheck (for lint), and shfmt (for formatting)
 RUN apk add --no-cache \
+    icu-data-full \
     nodejs \
     npm \
     shellcheck \
