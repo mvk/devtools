@@ -1,0 +1,16 @@
+# Use the smallest possible base
+FROM alpine:latest
+
+# Install Node (for LSP), ShellCheck (for lint), and shfmt (for formatting)
+RUN apk add --no-cache \
+    nodejs \
+    npm \
+    shellcheck \
+    shfmt \
+    bash
+
+# Install the language server
+RUN npm install -g bash-language-server
+
+WORKDIR /work
+ENTRYPOINT ["bash-language-server", "start"]
